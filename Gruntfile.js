@@ -1,9 +1,9 @@
 module.exports = function(grunt) {
 
-    var SRC_JS = "src/js/";
-    var DEST_JS = "assets/js/";
-    var SRC_CSS = "src/css/";
-    var DEST_CSS = "assets/css/";
+    var SRC_JS = "src/";
+    var DEST_JS = "assets/";
+    var SRC_CSS = "src/";
+    var DEST_CSS = "assets/";
 
     grunt.loadNpmTasks('grunt-docco');
 
@@ -152,27 +152,15 @@ module.exports = function(grunt) {
             },
         },
 
-        // docco: {
-        //   script: {
-        //     src: [
-        //         SRC_JS + "**/*.js",
-        //         SRC_JS + "*.js"
-        //     ],
-        //     dest: "docs/"
-        //   }
-        // },
-
         docco: {
-            debug: {
+            script: {
                 src: [
                     SRC_JS + "**/*.js",
                     SRC_JS + "*.js"
                 ],
-                options: {
-                    output: 'docs/'
-                }
+                dest: "docs/"
             }
-        }
+        },
 
         strip: {
             prod: {
@@ -186,8 +174,6 @@ module.exports = function(grunt) {
                 }
             }
         }
-
-
     });
 
     grunt.loadNpmTasks("grunt-contrib-jshint");
